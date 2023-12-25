@@ -9,6 +9,6 @@ public class client {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         EmailService emailService = applicationContext.getBean(EmailService.class);
-        System.out.println(Arrays.toString(emailService.sendMail()));
+        emailService.receiveMail();
     }
 }

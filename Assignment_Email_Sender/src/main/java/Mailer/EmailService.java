@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+
 @Service
-public class EmailService implements DataSource{
+public class EmailService{
     @Autowired
     @Qualifier("mySQLDataSource")
     private DataSource mysql;
@@ -13,12 +15,11 @@ public class EmailService implements DataSource{
     @Autowired
     @Qualifier("postgreSQLDataSource")
     private DataSource posgre;
-    @Override
-    public String[] sendMail() {
+
+    public void receiveMail() {
         System.out.println("This is to inform you that ");
-        return this.posgre.sendMail();
-//        System.out.println("Calling the postgre sql ....");
-//        this.posgre.sendMail();
-//        return new String[0];
+        System.out.println(Arrays.toString(this.mysql.sendMail()));
+        System.out.println("Calling the postgre sql ....");
+        System.out.println(Arrays.toString(this.posgre.sendMail()));
     }
 }
