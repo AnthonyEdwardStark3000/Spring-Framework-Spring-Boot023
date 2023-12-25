@@ -14,10 +14,11 @@ public class EmailService implements DataSource{
     @Qualifier("postgreSQLDataSource")
     private DataSource posgre;
     @Override
-    public void sendMail(String mail) {
+    public String[] sendMail() {
         System.out.println("This is to inform you that ");
-        this.mysql.sendMail(mail);
-        System.out.println("Calling the postgre sql ....");
-        this.posgre.sendMail(mail);
+        return this.posgre.sendMail();
+//        System.out.println("Calling the postgre sql ....");
+//        this.posgre.sendMail();
+//        return new String[0];
     }
 }

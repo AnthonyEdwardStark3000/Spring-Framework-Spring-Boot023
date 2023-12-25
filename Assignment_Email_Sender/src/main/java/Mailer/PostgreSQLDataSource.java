@@ -4,7 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PostgreSQLDataSource implements DataSource{
-    public void sendMail(String mail){
-        System.out.println("Mail sent from POSTGRE SQL\t"+mail);
+    private String[] mails = {"Happy christmas","Happy new year","Happy Pongal"};
+
+    public String[] sendMail(){
+        System.out.println("From PostgreSQL dataSource");
+        return mails;
     }
 }
